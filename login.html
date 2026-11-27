@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login | Love and Care</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+<div id="header"></div>
+<main class="wrap">
+  <div class="auth">
+    <div class="auth-side">
+      <h2 id="authTitle">Login</h2>
+      <p>Save your cart, place orders and track them in one place.</p>
+      <div class="big" aria-hidden="true">🐕 🐈</div>
+    </div>
+    <form class="auth-form" id="authForm" novalidate>
+      <div id="authError"></div>
+      <div id="nameRow" hidden>
+        <label for="name">Full name</label>
+        <input id="name" autocomplete="name">
+      </div>
+      <label for="email">Email</label>
+      <input id="email" type="email" autocomplete="email">
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password">
+      <button class="btn buy" id="authBtn">Login</button>
+      <p class="switch"><span id="switchText">New here?</span> <a href="#" id="switchLink">Create an account</a></p>
+    </form>
+  </div>
+</main>
+<div id="footer"></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
