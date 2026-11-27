@@ -3,47 +3,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Services - Lauren Carrington</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Lauren Carrington</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header>
-    <h2>Lauren Carrington</h2>
-    <nav>
+<header class="navbar">
+    <a href="index.html" class="logo">
+        LAUREN <span>CARRINGTON.</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="navMenu">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html">Services</a>
+        <a class="active" href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
 
-<section class="content">
-    <h1>Our Services</h1>
+<section class="page-banner">
+    <p class="subtitle">WHAT WE DO</p>
+    <h1>Our <span>Services</span></h1>
+    <p>Explore our creative services.</p>
+</section>
 
-    <div class="cards">
-        <div class="card">
+<section class="section">
+    <div class="card-container">
+
+        <div class="service-card">
+            <div class="service-icon">✦</div>
             <h2>Web Design</h2>
-            <p>Creative and attractive website designs.</p>
+            <p>
+                Attractive, modern and responsive
+                website designs for digital platforms.
+            </p>
+            <a href="contact.html">Learn More →</a>
         </div>
 
-        <div class="card">
-            <h2>Development</h2>
-            <p>Simple and user-friendly web development.</p>
+        <div class="service-card">
+            <div class="service-icon">✧</div>
+            <h2>Web Development</h2>
+            <p>
+                User-friendly website development
+                with modern technologies.
+            </p>
+            <a href="contact.html">Learn More →</a>
         </div>
 
-        <div class="card">
-            <h2>Digital Solutions</h2>
-            <p>Modern solutions for digital needs.</p>
+        <div class="service-card">
+            <div class="service-icon">◇</div>
+            <h2>Creative Solutions</h2>
+            <p>
+                Innovative ideas and digital
+                solutions for creative projects.
+            </p>
+            <a href="contact.html">Learn More →</a>
         </div>
+
     </div>
 </section>
 
+<section class="cta">
+    <h2>Need Our Services?</h2>
+    <p>Let's discuss your ideas and plans.</p>
+    <a href="contact.html" class="btn">Get In Touch</a>
+</section>
+
 <footer>
-    <p>Copyright © 2026 Lauren Carrington</p>
+    <h3>LAUREN CARRINGTON.</h3>
+    <p>Creativity • Quality • Inspiration</p>
+    <p>© 2026 Lauren Carrington. All Rights Reserved.</p>
 </footer>
 
 <script src="js/script.js"></script>
+
 </body>
 </html>
