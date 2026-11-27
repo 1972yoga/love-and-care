@@ -1,10 +1,15 @@
 
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Welcome to PetKart!");
+let cart = [];
+let total = 0;
 
-    document.querySelectorAll(".btn").forEach(button => {
-        button.addEventListener("click", function() {
-            console.log("PetKart button clicked");
-        });
-    });
-});
+function addCart(name, price) {
+    cart.push({name, price});
+    total += price;
+
+    document.getElementById("cart-items").innerHTML =
+        cart.map(item => item.name).join(", ");
+
+    document.getElementById("total").innerHTML =
+        "Total: ₹" + total;
+}
+
