@@ -3,48 +3,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact - Lauren Carrington</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Lauren Carrington</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header>
-    <h2>Lauren Carrington</h2>
-    <nav>
+<header class="navbar">
+    <a href="index.html" class="logo">
+        LAUREN <span>CARRINGTON.</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="navMenu">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
+        <a class="active" href="contact.html">Contact</a>
     </nav>
 </header>
 
-<section class="content">
-    <h1>Contact Us</h1>
+<section class="page-banner">
+    <p class="subtitle">LET'S CONNECT</p>
+    <h1>Contact <span>Us</span></h1>
+    <p>We would love to hear from you.</p>
+</section>
 
-    <form action="submit_contact.php" method="POST">
+<section class="contact-section section">
 
-        <input type="text" name="name"
-        placeholder="Your Name" required>
+    <div class="contact-info">
+        <p class="subtitle">GET IN TOUCH</p>
+        <h2>Let's Start a Conversation</h2>
 
-        <input type="email" name="email"
-        placeholder="Your Email" required>
+        <p>
+            Have a question or an idea?
+            Send us a message through this form.
+        </p>
 
-        <input type="text" name="subject"
-        placeholder="Subject">
+        <div class="info-box">
+            <h3>✉ Email</h3>
+            <p>hello@laurencarrington.com</p>
+        </div>
 
-        <textarea name="message"
-        placeholder="Your Message" required></textarea>
+        <div class="info-box">
+            <h3>⌖ Location</h3>
+            <p>India</p>
+        </div>
+    </div>
 
-        <button type="submit">Send Message</button>
+    <div class="contact-form-box">
 
-    </form>
+        <div id="formMessage" role="status" aria-live="polite"></div>
+
+        <form id="contactForm" action="submit_contact.php" method="POST">
+
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name"
+            placeholder="Enter your name" required maxlength="100">
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+            placeholder="Enter your email" required maxlength="150">
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject"
+            placeholder="Enter subject" maxlength="200">
+
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message"
+            placeholder="Write your message here..."
+            required maxlength="3000"></textarea>
+
+            <button type="submit" class="btn submit-btn">
+                Send Message →
+            </button>
+
+        </form>
+    </div>
+
 </section>
 
 <footer>
-    <p>Copyright © 2026 Lauren Carrington</p>
+    <h3>LAUREN CARRINGTON.</h3>
+    <p>Creativity • Quality • Inspiration</p>
+    <p>© 2026 Lauren Carrington. All Rights Reserved.</p>
 </footer>
 
 <script src="js/script.js"></script>
+
 </body>
 </html>
