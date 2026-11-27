@@ -1,20 +1,37 @@
 
-CREATE DATABASE IF NOT EXISTS lauren_db;
+<?php
 
-USE lauren_db;
+require_once "db.php";
 
-CREATE TABLE IF NOT EXISTS contacts (
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(405);
+    exit("Invalid request.");
+}
 
-    id INT AUTO_INCREMENT PRIMARY KEY,
+$name = trim($_POST["name"] ?? "");
+$email = trim($_POST["email"] ?? "");
+$pet = trim($_POST["pet_type"] ?? "");
+$message = trim($_POST["message"] ?? "");
 
-    name VARCHAR(100) NOT NULL,
+if ($name === "" || !filter_var($email, FILTER_VALIDATE_EMAIL)
+    || $pet === "" || $message === "") {
+    exit("Please enter valid details.");
+}
 
-    email VARCHAR(150) NOT NULL,
+$sql = "INSERT INTO enquiries (name, email, pet_type, message)
+        VALUES (?, ?, ?, ?)";
 
-    subject VARCHAR(200),
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssss", $name, $email, $pet, $message);
 
-    message TEXT NOT NULL,
+if ($stmt->execute()) {
+    echo "Your enquiry was submitted successfully!";
+} else {
+    http_response_code(500);
+    echo "Unable to submit your enquiry.";
+}
 
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+$stmt->close();
+$conn->close();
 
-);
+?>
