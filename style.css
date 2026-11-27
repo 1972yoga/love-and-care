@@ -3,19 +3,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #fffaf3;
-    color: #333;
-    line-height: 1.6;
+    background: #f1f3f6;
 }
 
 header {
-    background: #355b48;
+    background: #2874f0;
     color: white;
-    padding: 20px 6%;
+    padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,146 +21,140 @@ header {
     gap: 15px;
 }
 
-nav {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
 nav a {
     color: white;
     text-decoration: none;
+    margin: 10px;
     font-weight: bold;
-}
-
-nav a:hover {
-    color: #f5c99c;
 }
 
 .hero {
-    min-height: 420px;
-    background: linear-gradient(120deg, #e6f0e5, #f9e8d9);
-    display: flex;
-    align-items: center;
-    padding: 60px 8%;
+    background: linear-gradient(120deg,#ffe0b2,#ffb74d);
+    padding: 100px 30px;
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 48px;
-    color: #355b48;
+    font-size: 42px;
+    margin-bottom: 20px;
 }
 
 .hero p {
-    margin: 15px 0 25px;
+    margin-bottom: 30px;
+    font-size: 18px;
 }
 
-.btn, button {
-    background: #355b48;
+.btn {
+    background: #fb641b;
     color: white;
     border: none;
     padding: 12px 22px;
-    border-radius: 6px;
-    cursor: pointer;
     text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
     display: inline-block;
 }
 
-.btn:hover, button:hover {
-    background: #233f31;
-}
-
-.section {
-    padding: 55px 8%;
-}
-
-.section h1, .section h2 {
-    color: #355b48;
-    margin-bottom: 15px;
-}
-
-.cards {
-    padding: 30px 8%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
-}
-
-.cards article, .care-card {
+.categories, .products {
     background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px #00000012;
+    margin: 20px;
+    padding: 40px;
+    text-align: center;
 }
 
-.product-image {
-    height: 110px;
-    background: #edf3e9;
+.category {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    font-size: 40px;
+    flex-wrap: wrap;
+}
+
+.category p {
+    font-size: 17px;
+}
+
+.heading {
+    text-align: center;
+    padding: 35px;
+}
+
+.product-grid {
     display: grid;
-    place-items: center;
-    font-size: 55px;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    text-align: center;
     border-radius: 10px;
-    margin-bottom: 15px;
+    box-shadow: 0 2px 10px #ddd;
 }
 
-.product h3 {
-    margin: 8px 0;
-}
-
-.care-card {
-    margin: 20px 0;
-}
-
-.notice {
-    background: #fff0d8;
-    padding: 18px;
-    border-radius: 8px;
-    margin-top: 25px;
-}
-
-form {
-    max-width: 600px;
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px #00000012;
-}
-
-label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-input, textarea, select {
+.card img {
     width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    height: 170px;
+    object-fit: contain;
 }
 
-form button {
-    margin-top: 20px;
+.card h3, .card p {
+    margin: 15px;
+}
+
+.cart-box {
+    background: white;
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.cart-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-box input,
+.cart-box textarea {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.cart-box textarea {
+    height: 100px;
+}
+
+.success {
+    text-align: center;
+    color: green;
+    padding: 15px;
 }
 
 footer {
-    background: #263d31;
+    background: #172337;
     color: white;
     text-align: center;
-    padding: 22px;
-    margin-top: 40px;
+    padding: 25px;
 }
 
-@media (max-width: 650px) {
-    header {
-        flex-direction: column;
-    }
-
-    nav {
-        justify-content: center;
+@media(max-width:768px) {
+    .product-grid {
+        grid-template-columns: repeat(2,1fr);
     }
 
     .hero h1 {
-        font-size: 34px;
+        font-size: 28px;
+    }
+}
+
+@media(max-width:450px) {
+    .product-grid {
+        grid-template-columns: 1fr;
     }
 }
