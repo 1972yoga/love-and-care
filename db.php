@@ -1,15 +1,20 @@
 
 <?php
 
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "lauren_db";
+
 $conn = new mysqli(
-    "localhost",
-    "root",
-    "",
-    "lauren_db"
+    $host,
+    $username,
+    $password,
+    $database
 );
 
 if ($conn->connect_error) {
-    die("Database Connection Failed");
+    die("Database connection failed.");
 }
 
 $conn->set_charset("utf8mb4");
