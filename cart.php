@@ -1,59 +1,121 @@
 
+<?php
+require 'db.php';
+
+$message = "";
+
+if (isset($_POST['place_order'])) {
+
+    $name = trim($_POST['name']);
+    $phone = trim($_POST['phone']);
+    $address = trim($_POST['address']);
+
+    if ($name && $phone && $address && !empty($_SESSION['cart'])) {
+
+        $total = 0;
+        $ids = array_keys($_SESSION['cart']);
+
+        $stmt = $conn->prepare("SELECT price FROM products WHERE id=?");
+
+        foreach ($ids as $id) {
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $product = $stmt->get_result()->fetch_assoc();
+
+            if ($product) {
+                $total += $product['price'] * $_SESSION['cart'][$id];
+            }
+        }
+
+        $stmt = $conn->prepare(
+            "INSERT INTO orders(customer_name,phone,address,total)
+             VALUES(?,?,?,?)"
+        );
+        $stmt->bind_param("sssd", $name, $phone, $address, $total);
+
+        if ($stmt->execute()) {
+            $_SESSION['cart'] = [];
+            $message = "Order placed successfully!";
+        }
+    } else {
+        $message = "Please fill all details and add products.";
+    }
+}
+
+$total = 0;
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Care Tips</title>
-    <link rel="stylesheet" href="css/style.css">
+<title>PetKart Cart</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
-    <h2>🐾 Pawfect Pet Care</h2>
+    <h2>🐾 PetKart</h2>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="care.html">Pet Care</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.php">Home</a>
+        <a href="products.php">Products</a>
+        <a href="cart.php">Cart</a>
     </nav>
 </header>
 
-<section class="section">
-    <h1>Pet Health & Care</h1>
+<h1 class="heading">My Shopping Cart 🛒</h1>
 
-    <article class="care-card">
-        <h2>🥣 Proper Nutrition</h2>
-        <p>Provide balanced food suitable for your pet's species,
-           age and individual needs.</p>
-    </article>
+<p class="success">
+<?php echo htmlspecialchars($message); ?>
+</p>
 
-    <article class="care-card">
-        <h2>🧼 Hygiene & Grooming</h2>
-        <p>Maintain cleanliness and use grooming products
-           made specifically for pets.</p>
-    </article>
+<div class="cart-box">
 
-    <article class="care-card">
-        <h2>🎾 Exercise & Play</h2>
-        <p>Give your pets safe exercise, playtime and enough rest.</p>
-    </article>
+<?php
+$cart = $_SESSION['cart'] ?? [];
 
-    <article class="care-card">
-        <h2>🩺 Veterinary Check-ups</h2>
-        <p>Consult a veterinarian about vaccinations,
-           parasite prevention and regular health checks.</p>
-    </article>
+foreach($cart as $id => $qty) {
 
-    <p class="notice">
-        Note: This page provides general information only.
-        Always consult a qualified veterinarian for illness,
-        diagnosis and treatment.
-    </p>
-</section>
+    $stmt = $conn->prepare("SELECT * FROM products WHERE id=?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $product = $stmt->get_result()->fetch_assoc();
 
-<footer>
-    <p>© 2026 Pawfect Pet Care</p>
-</footer>
+    if (!$product) continue;
+
+    $subtotal = $product['price'] * $qty;
+    $total += $subtotal;
+?>
+
+<div class="cart-item">
+    <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+    <p>Quantity: <?php echo $qty; ?></p>
+    <p>Price: ₹<?php echo number_format($subtotal,2); ?></p>
+</div>
+
+<?php } ?>
+
+<h2>Total: ₹<?php echo number_format($total,2); ?></h2>
+
+<h2>Checkout Details</h2>
+
+<form method="POST">
+    <input type="text" name="name"
+           placeholder="Customer Name" required>
+
+    <input type="tel" name="phone"
+           placeholder="Phone Number"
+           pattern="[0-9]{10}" required>
+
+    <textarea name="address"
+              placeholder="Delivery Address" required></textarea>
+
+    <button name="place_order" class="btn"
+            <?php echo empty($cart) ? 'disabled' : ''; ?>>
+        Place Order
+    </button>
+</form>
+
+</div>
+
 </body>
 </html>
