@@ -4,95 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Lauren Carrington</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
-
 <body>
-
-<header class="navbar">
-    <a href="index.html" class="logo">
-        LAUREN <span>CARRINGTON.</span>
-    </a>
-
-    <button class="menu-btn" id="menuBtn">☰</button>
-
-    <nav id="navMenu">
+<header>
+    <h2>🐾 Pawfect Pet Care</h2>
+    <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a class="active" href="contact.html">Contact</a>
+        <a href="products.html">Products</a>
+        <a href="care.html">Pet Care</a>
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
 
-<section class="page-banner">
-    <p class="subtitle">LET'S CONNECT</p>
-    <h1>Contact <span>Us</span></h1>
-    <p>We would love to hear from you.</p>
-</section>
+<section class="section">
+    <h1>Contact Us</h1>
+    <p>Have a question? Send us a message.</p>
 
-<section class="contact-section section">
+    <form action="php/contact.php" method="POST">
+        <label>Name</label>
+        <input type="text" name="name" required>
 
-    <div class="contact-info">
-        <p class="subtitle">GET IN TOUCH</p>
-        <h2>Let's Start a Conversation</h2>
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-        <p>
-            Have a question or an idea?
-            Send us a message through this form.
-        </p>
+        <label>Pet Type</label>
+        <select name="pet_type" required>
+            <option value="">Select Pet</option>
+            <option>Dog</option>
+            <option>Cat</option>
+            <option>Rabbit</option>
+            <option>Bird</option>
+            <option>Other</option>
+        </select>
 
-        <div class="info-box">
-            <h3>✉ Email</h3>
-            <p>hello@laurencarrington.com</p>
-        </div>
+        <label>Message</label>
+        <textarea name="message" rows="5" required></textarea>
 
-        <div class="info-box">
-            <h3>⌖ Location</h3>
-            <p>India</p>
-        </div>
-    </div>
-
-    <div class="contact-form-box">
-
-        <div id="formMessage" role="status" aria-live="polite"></div>
-
-        <form id="contactForm" action="submit_contact.php" method="POST">
-
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name"
-            placeholder="Enter your name" required maxlength="100">
-
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email"
-            placeholder="Enter your email" required maxlength="150">
-
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject"
-            placeholder="Enter subject" maxlength="200">
-
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message"
-            placeholder="Write your message here..."
-            required maxlength="3000"></textarea>
-
-            <button type="submit" class="btn submit-btn">
-                Send Message →
-            </button>
-
-        </form>
-    </div>
-
+        <button type="submit">Submit</button>
+    </form>
 </section>
 
 <footer>
-    <h3>LAUREN CARRINGTON.</h3>
-    <p>Creativity • Quality • Inspiration</p>
-    <p>© 2026 Lauren Carrington. All Rights Reserved.</p>
+    <p>© 2026 Pawfect Pet Care</p>
 </footer>
-
-<script src="js/script.js"></script>
-
 </body>
 </html>
