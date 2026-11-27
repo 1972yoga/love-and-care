@@ -1,57 +1,46 @@
 
+<?php require 'db.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawfect Pet Care</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+<title>PetKart - Home</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h2>🐾 Pawfect Pet Care</h2>
+    <h2>🐾 PetKart</h2>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="care.html">Pet Care</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.php">Home</a>
+        <a href="products.php">Products</a>
+        <a href="cart.php">Cart 🛒</a>
     </nav>
 </header>
 
 <section class="hero">
-    <div>
-        <h1>Happy Pets, Healthy Lives!</h1>
-        <p>Everything your lovely pets need in one place.</p>
-        <a href="products.html" class="btn">Explore Products</a>
+    <h1>Everything Your Pet Needs!</h1>
+    <p>Best Food, Toys & Accessories For Your Pets</p>
+    <a href="products.php" class="btn">Shop Now</a>
+</section>
+
+<section class="categories">
+    <h2>Our Categories</h2>
+    <div class="category">
+        <div>🐶<p>Dogs</p></div>
+        <div>🐱<p>Cats</p></div>
+        <div>🐦<p>Birds</p></div>
+        <div>🐠<p>Fish</p></div>
     </div>
 </section>
 
-<section class="section">
-    <h2>Welcome to Pawfect Pet Care</h2>
-    <p>We care for dogs, cats, rabbits and other lovely pets.
-       Find quality pet products and useful pet care information.</p>
-</section>
-
-<section class="cards">
-    <article>
-        <h3>🐶 Dog Care</h3>
-        <p>Food, toys, grooming and accessories.</p>
-    </article>
-    <article>
-        <h3>🐱 Cat Care</h3>
-        <p>Nutrition, hygiene and fun products.</p>
-    </article>
-    <article>
-        <h3>🐰 Other Pets</h3>
-        <p>Essentials for your little companions.</p>
-    </article>
+<section class="products">
+    <h2>Welcome to PetKart</h2>
+    <p>Find everything your lovely pets need at affordable prices.</p>
+    <a href="products.php" class="btn">Explore Products</a>
 </section>
 
 <footer>
-    <p>© 2026 Pawfect Pet Care. All Rights Reserved.</p>
+    <p>© 2026 PetKart | All Rights Reserved</p>
 </footer>
 
 </body>
