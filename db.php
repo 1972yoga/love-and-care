@@ -1,22 +1,10 @@
 
 <?php
-
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "pawfect_pet_care";
-
-$conn = new mysqli(
-    $host,
-    $username,
-    $password,
-    $database
-);
+$conn = new mysqli("localhost", "root", "", "petkart");
 
 if ($conn->connect_error) {
-    die("Database connection failed.");
+    die("Database Connection Failed");
 }
 
-$conn->set_charset("utf8mb4");
-
+session_start();
 ?>
