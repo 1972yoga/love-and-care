@@ -1,18 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lauren Carrington - Home</title>
+
+    <title>Lauren Carrington | Home</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header>
-    <h2>Lauren Carrington</h2>
-    <nav>
-        <a href="index.html">Home</a>
+<header class="navbar">
+    <a href="index.html" class="logo">
+        LAUREN <span>CARRINGTON.</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="navMenu">
+        <a class="active" href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
@@ -21,24 +28,85 @@
 </header>
 
 <section class="hero">
-    <h1>Welcome to Lauren Carrington</h1>
-    <p>Discover Creativity, Passion and Excellence.</p>
-    <a href="about.html" class="btn">Explore More</a>
+    <div class="hero-content">
+        <p class="subtitle">WELCOME TO MY CREATIVE WORLD</p>
+
+        <h1>Creativity Begins<br>
+        With <span>Inspiration.</span></h1>
+
+        <p>
+            Discover beautiful ideas, creative designs
+            and inspiring digital experiences.
+        </p>
+
+        <a href="services.html" class="btn">
+            Explore Services →
+        </a>
+    </div>
+
+    <div class="hero-image">
+        <img
+        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900"
+        alt="Creative workspace">
+    </div>
 </section>
 
-<section class="content">
-    <h2>Welcome to Our Website</h2>
+<section class="welcome section">
+    <p class="subtitle">ABOUT OUR WEBSITE</p>
+
+    <h2>Welcome to Lauren Carrington</h2>
+
     <p>
-        Lauren Carrington is a creative platform
-        designed to showcase our services,
-        ideas and beautiful collections.
+        We believe that creativity makes everything
+        special. Our platform brings together
+        innovative ideas, beautiful designs and
+        quality services.
     </p>
+
+    <a href="about.html" class="text-link">
+        Discover More →
+    </a>
+</section>
+
+<section class="features section">
+    <h2>What We Offer</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <span>01</span>
+            <h3>Creative Design</h3>
+            <p>Beautiful and modern design experiences.</p>
+        </div>
+
+        <div class="card">
+            <span>02</span>
+            <h3>Innovation</h3>
+            <p>Fresh ideas for modern digital experiences.</p>
+        </div>
+
+        <div class="card">
+            <span>03</span>
+            <h3>Quality Service</h3>
+            <p>Reliable and user-friendly services.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Let's Create Something Beautiful</h2>
+    <p>Have an idea? We would love to hear from you.</p>
+    <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
 <footer>
-    <p>Copyright © 2026 Lauren Carrington</p>
+    <h3>LAUREN CARRINGTON.</h3>
+    <p>Creativity • Quality • Inspiration</p>
+    <p>© 2026 Lauren Carrington. All Rights Reserved.</p>
 </footer>
 
 <script src="js/script.js"></script>
+
 </body>
 </html>
