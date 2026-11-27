@@ -1,13 +1,13 @@
 
-CREATE DATABASE lauren_db;
+CREATE DATABASE IF NOT EXISTS pawfect_pet_care;
 
-USE lauren_db;
+USE pawfect_pet_care;
 
-CREATE TABLE contacts (
+CREATE TABLE IF NOT EXISTS enquiries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL,
-    subject VARCHAR(200),
+    pet_type VARCHAR(50) NOT NULL,
     message TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
