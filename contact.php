@@ -1,50 +1,20 @@
 
-<?php
+CREATE DATABASE IF NOT EXISTS lauren_db;
 
-require 'db.php';
+USE lauren_db;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+CREATE TABLE IF NOT EXISTS contacts (
 
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $subject = trim($_POST['subject'] ?? '');
-    $message = trim($_POST['message'] ?? '');
+    id INT AUTO_INCREMENT PRIMARY KEY,
 
-    if (
-        $name === '' ||
-        !filter_var($email, FILTER_VALIDATE_EMAIL) ||
-        $message === ''
-    ) {
-        header("Location: contact.html?status=error");
-        exit;
-    }
+    name VARCHAR(100) NOT NULL,
 
-    $stmt = $conn->prepare(
-        "INSERT INTO contacts
-        (name, email, subject, message)
-        VALUES (?, ?, ?, ?)"
-    );
+    email VARCHAR(150) NOT NULL,
 
-    $stmt->bind_param(
-        "ssss",
-        $name,
-        $email,
-        $subject,
-        $message
-    );
+    subject VARCHAR(200),
 
-    if ($stmt->execute()) {
-        header("Location: contact.html?status=success");
-    } else {
-        header("Location: contact.html?status=error");
-    }
+    message TEXT NOT NULL,
 
-    $stmt->close();
-    $conn->close();
-    exit;
-}
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
-header("Location: contact.html");
-exit;
-
-?>
+);
