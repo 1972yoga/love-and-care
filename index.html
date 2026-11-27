@@ -1,37 +1,37 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Love & Care</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home | Love and Care</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-<header>
-    <h2>🐾 Love & Care</h2>
-    <nav>
-        <a href="index.php">Home</a>
-        <a href="pets.php">Pets & Products</a>
-        <a href="contact.php">Contact</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>Everything for your Lovely Pets!</h1>
-    <p>Love, Care and Happiness for Every Pet.</p>
-    <a href="pets.php" class="btn">Shop Now</a>
-</section>
-
-<section class="categories">
-    <h2>Shop By Pet</h2>
-    <div class="items">
-        <a href="pets.php?category=Dogs">🐶 Dogs</a>
-        <a href="pets.php?category=Cats">🐱 Cats</a>
-        <a href="pets.php?category=Rabbits">🐰 Rabbits</a>
-        <a href="pets.php?category=Birds">🦜 Birds</a>
+<body data-page="home">
+<div id="header"></div>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Love and Care</h1>
+      <p>Food, toys and comfort for your dog or cat. Delivered to your door.</p>
     </div>
-</section>
+    <div class="hero-art" aria-hidden="true">🐶 🐱</div>
+  </section>
+
+  <div class="tabs">
+    <button class="tab on" data-pet="">All pets</button>
+    <button class="tab" data-pet="dog">Dogs</button>
+    <button class="tab" data-pet="cat">Cats</button>
+    <select id="cat" aria-label="Category">
+      <option value="">All categories</option>
+      <option>Food</option><option>Toys</option><option>Accessories</option><option>Grooming</option>
+    </select>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <p id="empty" class="empty" hidden>No products match your search. Try another word.</p>
+</main>
+<div id="footer"></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="script.js"></script>
 </body>
 </html>
-
-
